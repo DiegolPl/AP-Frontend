@@ -26,6 +26,9 @@ import { EducacionDeleteComponent } from './componentes/parte-privada/educacion/
 import { ExperienciaNewComponent } from './componentes/parte-privada/experiencia/experiencia-new/experiencia-new.component';
 import { ExperienciaEditComponent } from './componentes/parte-privada/experiencia/experiencia-edit/experiencia-edit.component';
 import { ExperienciaDeleteComponent } from './componentes/parte-privada/experiencia/experiencia-delete/experiencia-delete.component';
+import { HabilidadesNewComponent } from './componentes/parte-privada/habilidades/habilidades-new/habilidades-new.component';
+import { HabilidadesEditComponent } from './componentes/parte-privada/habilidades/habilidades-edit/habilidades-edit.component';
+import { HabilidadesDeleteComponent } from './componentes/parte-privada/habilidades/habilidades-delete/habilidades-delete.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +52,10 @@ import { ExperienciaDeleteComponent } from './componentes/parte-privada/experien
     EducacionDeleteComponent,
     ExperienciaNewComponent,
     ExperienciaEditComponent,
-    ExperienciaDeleteComponent
+    ExperienciaDeleteComponent,
+    HabilidadesNewComponent,
+    HabilidadesEditComponent,
+    HabilidadesDeleteComponent
   ],
   imports: [
     BrowserModule,
