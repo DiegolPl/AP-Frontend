@@ -10,7 +10,8 @@ import { LoginModalComponent } from './componentes/parte-publica/login-modal/log
 import { PerfilComponent } from './componentes/parte-publica/perfil/perfil.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ExperienciasComponent } from './componentes/parte-publica/experiencias/experiencias.component';
-import { EducacionesComponent } from './componentes/parte-publica/educaciones/educaciones.component'; 
+import { EducacionesComponent } from './componentes/parte-publica/educaciones/educaciones.component';
+import { HysComponent } from './componentes/parte-publica/hys/hys.component'; 
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { EducacionesComponent } from './componentes/parte-publica/educaciones/ed
     LoginModalComponent,
     PerfilComponent,
     ExperienciasComponent,
-    EducacionesComponent
+    EducacionesComponent,
+    HysComponent
   ],
   imports: [
     BrowserModule,
