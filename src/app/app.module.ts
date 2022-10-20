@@ -14,7 +14,9 @@ import { EducacionesComponent } from './componentes/parte-publica/educaciones/ed
 import { HysComponent } from './componentes/parte-publica/hys/hys.component';
 import { ProyectosComponent } from './componentes/parte-publica/proyectos/proyectos.component';
 import { FooterComponent } from './componentes/parte-publica/footer/footer.component';
-import { PartePublicaComponent } from './componentes/parte-publica/parte-publica/parte-publica.component'; 
+import { PartePublicaComponent } from './componentes/parte-publica/parte-publica/parte-publica.component';
+import { PartePrivadaComponent } from './componentes/parte-privada/parte-privada/parte-privada.component';
+import { MenuDashboardComponent } from './componentes/parte-privada/dashboard/menu-dashboard/menu-dashboard.component'; 
 
 @NgModule({
   declarations: [
@@ -28,7 +30,9 @@ import { PartePublicaComponent } from './componentes/parte-publica/parte-publica
     HysComponent,
     ProyectosComponent,
     FooterComponent,
-    PartePublicaComponent
+    PartePublicaComponent,
+    PartePrivadaComponent,
+    MenuDashboardComponent
   ],
   imports: [
     BrowserModule,
