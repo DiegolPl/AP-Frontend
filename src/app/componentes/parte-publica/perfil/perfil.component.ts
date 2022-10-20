@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
-import { DataTemporalService } from 'src/app/service/parte-interna/data-temporal.service';
+import { DataTemporalService } from 'src/app/service/parte-publica/data-temporal.service';
 
 @Component({
   selector: 'app-perfil',
