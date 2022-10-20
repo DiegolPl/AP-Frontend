@@ -13,7 +13,8 @@ import { ExperienciasComponent } from './componentes/parte-publica/experiencias/
 import { EducacionesComponent } from './componentes/parte-publica/educaciones/educaciones.component';
 import { HysComponent } from './componentes/parte-publica/hys/hys.component';
 import { ProyectosComponent } from './componentes/parte-publica/proyectos/proyectos.component';
-import { FooterComponent } from './componentes/parte-publica/footer/footer.component'; 
+import { FooterComponent } from './componentes/parte-publica/footer/footer.component';
+import { PartePublicaComponent } from './componentes/parte-publica/parte-publica/parte-publica.component'; 
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { FooterComponent } from './componentes/parte-publica/footer/footer.compo
     EducacionesComponent,
     HysComponent,
     ProyectosComponent,
-    FooterComponent
+    FooterComponent,
+    PartePublicaComponent
   ],
   imports: [
     BrowserModule,
