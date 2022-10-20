@@ -8,7 +8,8 @@ import { HeaderComponent } from './componentes/parte-publica/header/header.compo
 import { BannerComponent } from './componentes/parte-publica/banner/banner.component';
 import { LoginModalComponent } from './componentes/parte-publica/login-modal/login-modal.component';
 import { PerfilComponent } from './componentes/parte-publica/perfil/perfil.component';
-import { HttpClientModule } from '@angular/common/http'; 
+import { HttpClientModule } from '@angular/common/http';
+import { ExperienciasComponent } from './componentes/parte-publica/experiencias/experiencias.component'; 
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { HttpClientModule } from '@angular/common/http';
     HeaderComponent,
     BannerComponent,
     LoginModalComponent,
-    PerfilComponent
+    PerfilComponent,
+    ExperienciasComponent
   ],
   imports: [
     BrowserModule,
