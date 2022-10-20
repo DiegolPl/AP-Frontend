@@ -1,0 +1,37 @@
+<form class="row g-3" (ngSubmit)="editarEducacion()" [formGroup]="educacionForm">
+    <div class="col-12">
+        <label for="edit-educacion-input-id" class="form-label">Ingresa el ID del elemento a editar</label>
+        <input type="number" class="form-control" id="edit-educacion-input-id" min="1">
+        <div *ngIf="existeEducacion" class="alert alert-danger" >El ID ingresado no corresponde a ninguna educación registrada.</div>
+        <button class="btn btn-primary mt-3" type="button" (click)="getEducacion()">Cargar datos</button>
+    </div>
+    <hr>
+    <div class="col-12 col-md-6">
+        <label for="edit-educacion-input-fechaInicio" class="form-label">Año (Inicio)</label>
+        <input type="number" class="form-control" formControlName="fecha_inicio" id="edit-educacion-input-fechaInicio" min="2000" max="2050" maxlength="4">
+        <div *ngIf="educacionForm.get('fecha_inicio')?.touched && educacionForm.get('fecha_inicio')?.errors?.['required']" class="alert alert-danger" >Este campo es requerido</div>
+    </div>
+    <div class="col-12 col-md-6">
+        <label for="edit-educacion-input-fechaFin" class="form-label">Año (Fin)</label>
+        <input type="number" class="form-control" formControlName="fecha_fin" id="edit-educacion-input-fechaFin" min="2000" max="2050" maxlength="4">
+        <div *ngIf="educacionForm.get('fecha_fin')?.touched && educacionForm.get('fecha_fin')?.errors?.['required']" class="alert alert-danger" >Este campo es requerido</div>
+    </div>
+    <div class="col-12">
+        <label for="edit-educacion-input-instituto" class="form-label">Instituto</label>
+        <input type="text" class="form-control" formControlName="instituto" id="edit-educacion-input-instituto">
+        <div *ngIf="educacionForm.get('instituto')?.touched && educacionForm.get('instituto')?.errors?.['required']" class="alert alert-danger" >Este campo es requerido</div>
+    </div>
+    <div class="col-12">
+        <label for="edit-educacion-input-title" class="form-label">Título</label>
+        <input type="text" class="form-control" formControlName="titulo" id="edit-educacion-input-title">
+        <div *ngIf="educacionForm.get('titulo')?.touched && educacionForm.get('titulo')?.errors?.['required']" class="alert alert-danger" >Este campo es requerido</div>
+    </div>
+    <div class="col-12">
+        <label for="edit-educacion-input-descripcion" class="form-label">Descripción</label>
+        <textarea class="form-control textarea" formControlName="descripcion" id="edit-educacion-input-descripcion"></textarea>
+        <div *ngIf="educacionForm.get('descripcion')?.touched && educacionForm.get('descripcion')?.errors?.['required']" class="alert alert-danger" >Este campo es requerido</div>
+    </div>
+    <div class="col-12">
+        <button type="submit" class="btn btn-primary" id="edit-educacion-btn" [disabled]="educacionForm.invalid">Editar</button>
+    </div>
+</form>

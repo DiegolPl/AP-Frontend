@@ -1,0 +1,32 @@
+<form class="row g-3" (ngSubmit)="eliminarEducacion()" [formGroup]="educacionForm">
+    <div class="col-12">
+        <label for="delete-educacion-input-id" class="form-label">Ingresa el ID del elemento a eliminar</label>
+        <input type="number" class="form-control" id="delete-educacion-input-id" min="1">
+        <div *ngIf="existeEducacion" class="alert alert-danger" >El ID ingresado no corresponde a ninguna educación registrada.</div>
+        <button class="btn btn-primary mt-3" type="button" (click)="getEducacion()">Cargar datos</button>
+    </div>
+    <hr>
+    <div class="col-12 col-md-6">
+        <label for="delete-educacion-input-fechaInicio" class="form-label">Año (Inicio)</label>
+        <input type="number" class="form-control" formControlName="fecha_inicio" id="delete-educacion-input-fechaInicio" min="2000" max="2050" maxlength="4">
+    </div>
+    <div class="col-12 col-md-6">
+        <label for="delete-educacion-input-fechaFin" class="form-label">Año (Fin)</label>
+        <input type="number" class="form-control" formControlName="fecha_fin" id="delete-educacion-input-fechaFin" min="2000" max="2050" maxlength="4">
+    </div>
+    <div class="col-12">
+        <label for="delete-educacion-input-instituto" class="form-label">Instituto</label>
+        <input type="text" class="form-control" formControlName="instituto" id="delete-educacion-input-instituto">
+    </div>
+    <div class="col-12">
+        <label for="delete-educacion-input-title" class="form-label">Título</label>
+        <input type="text" class="form-control" formControlName="titulo" id="delete-educacion-input-title">
+    </div>
+    <div class="col-12">
+        <label for="delete-educacion-input-descripcion" class="form-label">Descripción</label>
+        <textarea class="form-control textarea" formControlName="descripcion" id="delete-educacion-input-descripcion"></textarea>
+    </div>
+    <div class="col-12">
+        <button type="submit" class="btn btn-primary" id="delete-educacion-btn">Eliminar</button>
+    </div>
+</form>

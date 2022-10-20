@@ -20,6 +20,9 @@ import { MenuDashboardComponent } from './componentes/parte-privada/dashboard/me
 import { BodyDashboardComponent } from './componentes/parte-privada/dashboard/body-dashboard/body-dashboard.component';
 import { PerfilEditComponent } from './componentes/parte-privada/perfil/perfil-edit/perfil-edit.component'; 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { EducacionNewComponent } from './componentes/parte-privada/educacion/educacion-new/educacion-new.component';
+import { EducacionEditComponent } from './componentes/parte-privada/educacion/educacion-edit/educacion-edit.component';
+import { EducacionDeleteComponent } from './componentes/parte-privada/educacion/educacion-delete/educacion-delete.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +40,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     PartePrivadaComponent,
     MenuDashboardComponent,
     BodyDashboardComponent,
-    PerfilEditComponent
+    PerfilEditComponent,
+    EducacionNewComponent,
+    EducacionEditComponent,
+    EducacionDeleteComponent
   ],
   imports: [
     BrowserModule,
