@@ -1,0 +1,34 @@
+<header class="header">
+    <div class="logo">
+        <img src="../../../assets/images/logo-argpro.png" alt="Logo Argentina Programa" class="logo-img">
+        <div class="logo-text">
+            <h2>Argentina Programa</h2>
+            <h3>#YoProgramo</h3>
+        </div>
+    </div>
+    <nav class="menu-navbar swap" id="menu-navbar">
+        
+        <a href="#" class="link">
+            <fa-icon [icon]="faGithub"></fa-icon>
+            <p class="link-name">Github</p>
+        </a>
+        <a href="#" class="link">
+            <fa-icon [icon]="faTwitter"></fa-icon>
+            <p class="link-name">Twitter</p>
+        </a>
+        <a href="#" class="link">
+            <fa-icon [icon]="faInstagram"></fa-icon>
+            <p class="link-name">Instagram</p>
+        </a>
+        <a class="link login-btn btn-login-activador" id="btn-login" (click)="abrirLogin()">
+            <fa-icon [icon]="faUser" id="icono-user"></fa-icon>
+            <p class="link-name">Login</p>
+        </a>
+        <a class="link login-btn d-none" id="btn-logout">
+            <fa-icon [icon]="faUser" id="icono-logout" title="Cerrar sesión" (click)="logout()"></fa-icon>
+            <p class="link-name">Logout</p>
+        </a>
+    </nav>
+    <fa-icon [icon]="faBars" class="menu-btn fa-bars" id="menu-btn" (click)="activarMenu()"></fa-icon>
+    <fa-icon [icon]="faTimes" class="menu-btn fa-times d-none" id="menu-btn-close" (click)="desactivarMenu()"></fa-icon>
+</header>
