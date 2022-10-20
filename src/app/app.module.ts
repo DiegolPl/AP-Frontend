@@ -9,7 +9,8 @@ import { BannerComponent } from './componentes/parte-publica/banner/banner.compo
 import { LoginModalComponent } from './componentes/parte-publica/login-modal/login-modal.component';
 import { PerfilComponent } from './componentes/parte-publica/perfil/perfil.component';
 import { HttpClientModule } from '@angular/common/http';
-import { ExperienciasComponent } from './componentes/parte-publica/experiencias/experiencias.component'; 
+import { ExperienciasComponent } from './componentes/parte-publica/experiencias/experiencias.component';
+import { EducacionesComponent } from './componentes/parte-publica/educaciones/educaciones.component'; 
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { ExperienciasComponent } from './componentes/parte-publica/experiencias/
     BannerComponent,
     LoginModalComponent,
     PerfilComponent,
-    ExperienciasComponent
+    ExperienciasComponent,
+    EducacionesComponent
   ],
   imports: [
     BrowserModule,
