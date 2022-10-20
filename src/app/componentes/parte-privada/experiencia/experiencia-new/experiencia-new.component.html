@@ -1,0 +1,30 @@
+<form class="row g-3" (ngSubmit)="agregarExperiencia()" [formGroup]="experienciaForm">
+    <div class="col-12 col-md-6">
+        <label for="new-experiencia-input-fechaInicio" class="form-label">Año (Inicio)</label>
+        <input type="number" class="form-control" formControlName="fecha_inicio" id="new-experiencia-input-fechaInicio" min="2000" max="2050" maxlength="4">
+        <div *ngIf="experienciaForm.get('fecha_inicio')?.touched && experienciaForm.get('fecha_inicio')?.errors?.['required']" class="alert alert-danger" >Este campo es requerido</div>
+    </div>
+    <div class="col-12 col-md-6">
+        <label for="new-experiencia-input-fechaFin" class="form-label">Año (Fin)</label>
+        <input type="number" class="form-control" formControlName="fecha_fin" id="new-experiencia-input-fechaFin" min="2000" max="2050" maxlength="4">
+        <div *ngIf="experienciaForm.get('fecha_fin')?.touched && experienciaForm.get('fecha_fin')?.errors?.['required']" class="alert alert-danger" >Este campo es requerido</div>
+    </div>
+    <div class="col-12">
+        <label for="new-experiencia-input-lugar" class="form-label">Lugar</label>
+        <input type="text" class="form-control" formControlName="lugar" id="new-experiencia-input-lugar">
+        <div *ngIf="experienciaForm.get('lugar')?.touched && experienciaForm.get('lugar')?.errors?.['required']" class="alert alert-danger" >Este campo es requerido</div>
+    </div>
+    <div class="col-12">
+        <label for="new-experiencia-input-ocupacion" class="form-label">Ocupación</label>
+        <input type="text" class="form-control" formControlName="ocupacion" id="new-experiencia-input-ocupacion">
+        <div *ngIf="experienciaForm.get('ocupacion')?.touched && experienciaForm.get('ocupacion')?.errors?.['required']" class="alert alert-danger" >Este campo es requerido</div>
+    </div>
+    <div class="col-12">
+        <label for="new-experiencia-input-descripcion" class="form-label">Descripción</label>
+        <textarea class="form-control textarea" formControlName="descripcion" id="new-experiencia-input-descripcion"></textarea>
+        <div *ngIf="experienciaForm.get('descripcion')?.touched && experienciaForm.get('descripcion')?.errors?.['required']" class="alert alert-danger" >Este campo es requerido</div>
+    </div>
+    <div class="col-12">
+        <button type="submit" class="btn btn-primary" id="new-experiencia-btn" [disabled]="experienciaForm.invalid">Crear</button>
+    </div>
+</form>

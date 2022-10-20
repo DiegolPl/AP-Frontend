@@ -23,6 +23,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EducacionNewComponent } from './componentes/parte-privada/educacion/educacion-new/educacion-new.component';
 import { EducacionEditComponent } from './componentes/parte-privada/educacion/educacion-edit/educacion-edit.component';
 import { EducacionDeleteComponent } from './componentes/parte-privada/educacion/educacion-delete/educacion-delete.component';
+import { ExperienciaNewComponent } from './componentes/parte-privada/experiencia/experiencia-new/experiencia-new.component';
+import { ExperienciaEditComponent } from './componentes/parte-privada/experiencia/experiencia-edit/experiencia-edit.component';
+import { ExperienciaDeleteComponent } from './componentes/parte-privada/experiencia/experiencia-delete/experiencia-delete.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +46,10 @@ import { EducacionDeleteComponent } from './componentes/parte-privada/educacion/
     PerfilEditComponent,
     EducacionNewComponent,
     EducacionEditComponent,
-    EducacionDeleteComponent
+    EducacionDeleteComponent,
+    ExperienciaNewComponent,
+    ExperienciaEditComponent,
+    ExperienciaDeleteComponent
   ],
   imports: [
     BrowserModule,

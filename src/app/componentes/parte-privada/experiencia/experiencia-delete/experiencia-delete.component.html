@@ -1,0 +1,32 @@
+<form class="row g-3" (ngSubmit)="deleteExperiencia()" [formGroup]="experienciaForm">
+    <div class="col-12">
+        <label for="delete-experiencia-input-id" class="form-label">Ingresa el ID del elemento a eliminar</label>
+        <input type="number" class="form-control" id="delete-experiencia-input-id" min="1">
+        <div *ngIf="existeExperiencia" class="alert alert-danger" >El ID ingresado no corresponde a ninguna experiencia registrada.</div>
+        <button class="btn btn-primary mt-3" type="button" (click)="getExperiencia()">Cargar datos</button>
+    </div>
+    <hr>
+    <div class="col-12 col-md-6">
+        <label for="delete-experiencia-input-fechaInicio" class="form-label">Año (Inicio)</label>
+        <input type="number" class="form-control" formControlName="fecha_inicio" id="delete-experiencia-input-fechaInicio" min="2000" max="2050" maxlength="4">
+    </div>
+    <div class="col-12 col-md-6">
+        <label for="delete-experiencia-input-fechaFin" class="form-label">Año (Fin)</label>
+        <input type="number" class="form-control" formControlName="fecha_fin" id="delete-experiencia-input-fechaFin" min="2000" max="2050" maxlength="4">
+    </div>
+    <div class="col-12">
+        <label for="delete-experiencia-input-lugar" class="form-label">Lugar</label>
+        <input type="text" class="form-control" formControlName="lugar" id="delete-experiencia-input-lugar">
+    </div>
+    <div class="col-12">
+        <label for="delete-experiencia-input-ocupacion" class="form-label">Ocupación</label>
+        <input type="text" class="form-control" formControlName="ocupacion" id="delete-experiencia-input-ocupacion">
+    </div>
+    <div class="col-12">
+        <label for="delete-experiencia-input-descripcion" class="form-label">Descripción</label>
+        <textarea class="form-control textarea" formControlName="descripcion" id="delete-experiencia-input-descripcion"></textarea>
+    </div>
+    <div class="col-12">
+        <button type="submit" class="btn btn-primary" id="delete-experiencia-btn">Eliminar</button>
+    </div>
+</form>
