@@ -16,7 +16,8 @@ import { ProyectosComponent } from './componentes/parte-publica/proyectos/proyec
 import { FooterComponent } from './componentes/parte-publica/footer/footer.component';
 import { PartePublicaComponent } from './componentes/parte-publica/parte-publica/parte-publica.component';
 import { PartePrivadaComponent } from './componentes/parte-privada/parte-privada/parte-privada.component';
-import { MenuDashboardComponent } from './componentes/parte-privada/dashboard/menu-dashboard/menu-dashboard.component'; 
+import { MenuDashboardComponent } from './componentes/parte-privada/dashboard/menu-dashboard/menu-dashboard.component';
+import { BodyDashboardComponent } from './componentes/parte-privada/dashboard/body-dashboard/body-dashboard.component'; 
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { MenuDashboardComponent } from './componentes/parte-privada/dashboard/me
     FooterComponent,
     PartePublicaComponent,
     PartePrivadaComponent,
-    MenuDashboardComponent
+    MenuDashboardComponent,
+    BodyDashboardComponent
   ],
   imports: [
     BrowserModule,
