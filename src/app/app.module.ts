@@ -17,7 +17,9 @@ import { FooterComponent } from './componentes/parte-publica/footer/footer.compo
 import { PartePublicaComponent } from './componentes/parte-publica/parte-publica/parte-publica.component';
 import { PartePrivadaComponent } from './componentes/parte-privada/parte-privada/parte-privada.component';
 import { MenuDashboardComponent } from './componentes/parte-privada/dashboard/menu-dashboard/menu-dashboard.component';
-import { BodyDashboardComponent } from './componentes/parte-privada/dashboard/body-dashboard/body-dashboard.component'; 
+import { BodyDashboardComponent } from './componentes/parte-privada/dashboard/body-dashboard/body-dashboard.component';
+import { PerfilEditComponent } from './componentes/parte-privada/perfil/perfil-edit/perfil-edit.component'; 
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -34,13 +36,16 @@ import { BodyDashboardComponent } from './componentes/parte-privada/dashboard/bo
     PartePublicaComponent,
     PartePrivadaComponent,
     MenuDashboardComponent,
-    BodyDashboardComponent
+    BodyDashboardComponent,
+    PerfilEditComponent
   ],
   imports: [
     BrowserModule,
     FontAwesomeModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,25 @@
+<form class="row g-3" [formGroup]="perfilForm" (ngSubmit)="onEditPerfil()" enctype="multipart/form-data">
+    <div class="col-12">
+        <label for="edit-perfil-input-img" class="form-label">Imagen</label>
+        <input type="file" name="newImg" (change)="onChange($event)" class="form-control" id="edit-perfil-input-img">
+        <!-- <div *ngIf="perfilForm.get('archivo')?.touched && perfilForm.get('archivo')?.errors?.['required']" class="alert alert-danger" >Este campo es requerido</div> -->
+    </div>
+    <div class="col-12">
+        <label for="edit-perfil-input-name" class="form-label">Nombre</label>
+        <input type="text" class="form-control" formControlName="nombre" name="nombre" id="edit-perfil-input-name">
+        <div *ngIf="perfilForm.get('nombre')?.touched && perfilForm.get('nombre')?.errors?.['required']" class="alert alert-danger" >Este campo es requerido</div>
+    </div>
+    <div class="col-12">
+        <label for="edit-perfil-input-title" class="form-label">Título</label>
+        <input type="text" class="form-control" formControlName="titulo" name="titulo" id="edit-perfil-input-title">
+        <div *ngIf="perfilForm.get('titulo')?.touched && perfilForm.get('titulo')?.errors?.['required']" class="alert alert-danger" >Este campo es requerido</div>
+    </div>
+    <div class="col-12">
+        <label for="edit-perfil-input-about" class="form-label">Sobre Mí</label>
+        <textarea class="form-control textarea" formControlName="sobreMi" name="sobreMi" id="edit-perfil-input-about"></textarea>
+        <div *ngIf="perfilForm.get('sobreMi')?.touched && perfilForm.get('sobreMi')?.errors?.['required']" class="alert alert-danger" >Este campo es requerido</div>
+    </div>
+    <div class="col-12">
+        <button type="submit" class="btn btn-primary" id="edit-perfil-btn" [disabled]="perfilForm.invalid">Editar</button>
+    </div>
+</form>
