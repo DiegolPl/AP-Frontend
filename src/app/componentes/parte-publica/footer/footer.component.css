@@ -7,3 +7,7 @@
     place-items: center;
     font-size: 1.3rem;
 }
+
+p.copy {
+    margin: 0;
+}
