@@ -158,21 +158,21 @@
             "nombre": "Titulo Proyecto 1",
             "fecha": 2022,
             "descripcion": "Lorem taylor ipsum dolor sit amet consectetur adipisicing elit. Mollitia fuga consequatur cum corrupti itaque iure.",
-            "url-img": "../../../assets/images/pexels-1.jpg",
+            "url-img": "../../../../assets/images/proyecto1.jpg",
             "url-proyecto": "#"
         },
         {
             "nombre": "Titulo Proyecto 2",
             "fecha": 2021,
             "descripcion": "Lorem i love ipsum dolor sit amet consectetur adipisicing elit. Mollitia fuga consequatur cum corrupti itaque iure.",
-            "url-img": "../../../assets/images/pexels-2.jpg",
+            "url-img": "../../../../assets/images/proyecto2.jpg",
             "url-proyecto": "#"
         },
         {
             "nombre": "Titulo Proyecto 3",
             "fecha": 2021,
             "descripcion": "Lorem u ipsum dolor sit amet consectetur adipisicing elit. Mollitia fuga consequatur cum corrupti itaque iure.",
-            "url-img": "../../../assets/images/pexels-3.jpg",
+            "url-img": "../../../../assets/images/proyecto3.jpg",
             "url-proyecto": "#"
         }
     ],
