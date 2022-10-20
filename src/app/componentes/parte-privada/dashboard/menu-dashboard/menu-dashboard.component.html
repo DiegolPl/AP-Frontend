@@ -1,0 +1,37 @@
+<ul class="nav nav-tabs">
+    <li class="nav-item">
+        <button class="nav-link active" aria-current="page" (click)="habilitarForm('1')" id="btn-1">Perfil</button>
+    </li>
+    <li class="nav-item dropdown">
+        <button class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false" id="btn-2">Educación</button>
+        <ul class="dropdown-menu">
+            <li><button class="dropdown-item" (click)="habilitarForm('2')" (click)="activarMenu('2')">Nuevo</button></li>
+            <li><button class="dropdown-item" (click)="habilitarForm('3')" (click)="activarMenu('2')">Editar</button></li>
+            <li><button class="dropdown-item" (click)="habilitarForm('4')" (click)="activarMenu('2')">Eliminar</button></li>
+         </ul>
+    </li>
+    <li class="nav-item dropdown">
+        <button class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false" id="btn-3">Experiencia</button>
+        <ul class="dropdown-menu">
+            <li><button class="dropdown-item" (click)="habilitarForm('5')" (click)="activarMenu('3')">Nuevo</button></li>
+            <li><button class="dropdown-item" (click)="habilitarForm('6')" (click)="activarMenu('3')">Editar</button></li>
+            <li><button class="dropdown-item" (click)="habilitarForm('7')" (click)="activarMenu('3')">Eliminar</button></li>
+         </ul>
+    </li>
+    <li class="nav-item dropdown">
+        <button class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false" id="btn-4">Habilidades</button>
+        <ul class="dropdown-menu">
+            <li><button class="dropdown-item" (click)="habilitarForm('8')" (click)="activarMenu('4')">Nuevo</button></li>
+            <li><button class="dropdown-item" (click)="habilitarForm('9')" (click)="activarMenu('4')">Editar</button></li>
+            <li><button class="dropdown-item" (click)="habilitarForm('10')" (click)="activarMenu('4')">Eliminar</button></li>
+         </ul>
+    </li>
+    <li class="nav-item dropdown">
+        <button class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false" id="btn-5">Proyectos</button>
+        <ul class="dropdown-menu">
+            <li><button class="dropdown-item" (click)="habilitarForm('11')" (click)="activarMenu('5')">Nuevo</button></li>
+            <li><button class="dropdown-item" (click)="habilitarForm('12')" (click)="activarMenu('5')">Editar</button></li>
+            <li><button class="dropdown-item" (click)="habilitarForm('13')" (click)="activarMenu('5')">Eliminar</button></li>
+         </ul>
+    </li>
+</ul>
