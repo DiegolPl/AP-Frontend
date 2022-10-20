@@ -12,7 +12,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { ExperienciasComponent } from './componentes/parte-publica/experiencias/experiencias.component';
 import { EducacionesComponent } from './componentes/parte-publica/educaciones/educaciones.component';
 import { HysComponent } from './componentes/parte-publica/hys/hys.component';
-import { ProyectosComponent } from './componentes/parte-publica/proyectos/proyectos.component'; 
+import { ProyectosComponent } from './componentes/parte-publica/proyectos/proyectos.component';
+import { FooterComponent } from './componentes/parte-publica/footer/footer.component'; 
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { ProyectosComponent } from './componentes/parte-publica/proyectos/proyec
     ExperienciasComponent,
     EducacionesComponent,
     HysComponent,
-    ProyectosComponent
+    ProyectosComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
