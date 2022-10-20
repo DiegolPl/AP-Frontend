@@ -11,7 +11,8 @@ import { PerfilComponent } from './componentes/parte-publica/perfil/perfil.compo
 import { HttpClientModule } from '@angular/common/http';
 import { ExperienciasComponent } from './componentes/parte-publica/experiencias/experiencias.component';
 import { EducacionesComponent } from './componentes/parte-publica/educaciones/educaciones.component';
-import { HysComponent } from './componentes/parte-publica/hys/hys.component'; 
+import { HysComponent } from './componentes/parte-publica/hys/hys.component';
+import { ProyectosComponent } from './componentes/parte-publica/proyectos/proyectos.component'; 
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { HysComponent } from './componentes/parte-publica/hys/hys.component';
     PerfilComponent,
     ExperienciasComponent,
     EducacionesComponent,
-    HysComponent
+    HysComponent,
+    ProyectosComponent
   ],
   imports: [
     BrowserModule,

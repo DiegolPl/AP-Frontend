@@ -1,0 +1,15 @@
+<section class="proyecto section-style">
+    <h2 class="title-section">Proyectos</h2>
+    <div class="container-seccion" id="container-proyecto">
+        <a [href]="proyecto['url-proyecto']" class="card-proyecto" *ngFor="let proyecto of miPorfolio.proyectos">
+        
+            <div class="card-top">
+                <img [src]="proyecto['url-img']" alt="" class="card-img">
+            </div>
+            <div class="card-bottom">
+                <h3 class="card-title">{{proyecto.nombre}} <span>- {{proyecto.fecha}}</span></h3>
+                <p class="card-description">{{proyecto.descripcion}}</p>
+            </div>
+        </a>
+    </div>
+</section>
