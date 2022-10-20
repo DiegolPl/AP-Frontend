@@ -1,0 +1,32 @@
+<form class="row g-3" (ngSubmit)="eliminarProyecto()" [formGroup]="proyectoForm" enctype="multipart/form-data">
+    <div class="col-12">
+        <label for="delete-proyecto-input-id" class="form-label">Ingresa el ID del elemento a eliminar</label>
+        <input type="number" class="form-control" id="delete-proyecto-input-id" min="1">
+        <div *ngIf="existeProyecto" class="alert alert-danger" >El ID ingresado no corresponde a ninguna experiencia registrada.</div>
+        <button class="btn btn-primary mt-3" type="button" (click)="getProyecto()">Cargar datos</button>
+    </div>
+    <hr>
+    <div class="col-12">
+        <label for="delete-proyecto-input-img" class="form-label">Imagen</label>
+        <input type="file" name="deleteImg" class="form-control" id="delete-proyecto-input-img" disabled>
+    </div>
+    <div class="col-12">
+        <label for="delete-proyecto-input-title" class="form-label">Título</label>
+        <input type="text" class="form-control" formControlName="titulo" id="delete-proyecto-input-title">
+    </div>
+    <div class="col-12">
+        <label for="delete-proyecto-input-fecha" class="form-label">Año</label>
+        <input type="number" class="form-control" formControlName="fecha" id="delete-proyecto-input-fecha" min="2000" max="2050" maxlength="4">
+    </div>
+    <div class="col-12">
+        <label for="delete-proyecto-input-link" class="form-label">Link</label>
+        <input type="text" class="form-control" formControlName="link" id="delete-proyecto-input-link">
+    </div>
+    <div class="col-12">
+        <label for="delete-proyecto-input-descripcion" class="form-label">Descripción</label>
+        <textarea class="form-control textarea" formControlName="descripcion" id="delete-proyecto-input-descripcion"></textarea>
+    </div>
+    <div class="col-12">
+        <button type="submit" class="btn btn-primary" id="delete-proyecto-btn">Eliminar</button>
+    </div>
+</form>

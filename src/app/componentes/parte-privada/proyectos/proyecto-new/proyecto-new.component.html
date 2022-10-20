@@ -1,0 +1,29 @@
+<form class="row g-3" (ngSubmit)="agregarProyecto()" [formGroup]="proyectoForm" enctype="multipart/form-data">
+    <div class="col-12">
+        <label for="new-proyecto-input-img" class="form-label">Imagen</label>
+        <input type="file" name="newImg" (change)="onChange($event)" class="form-control" id="new-proyecto-input-img">
+    </div>
+    <div class="col-12">
+        <label for="new-proyecto-input-title" class="form-label">Título</label>
+        <input type="text" class="form-control" formControlName="titulo" id="new-proyecto-input-title">
+        <div *ngIf="proyectoForm.get('titulo')?.touched && proyectoForm.get('titulo')?.errors?.['required']" class="alert alert-danger" >Este campo es requerido</div>
+    </div>
+    <div class="col-12">
+        <label for="new-proyecto-input-fecha" class="form-label">Año</label>
+        <input type="number" class="form-control" formControlName="fecha" id="new-proyecto-input-fecha" min="2000" max="2050" maxlength="4">
+        <div *ngIf="proyectoForm.get('fecha')?.touched && proyectoForm.get('fecha')?.errors?.['required']" class="alert alert-danger" >Este campo es requerido</div>
+    </div>
+    <div class="col-12">
+        <label for="new-proyecto-input-link" class="form-label">Link</label>
+        <input type="text" class="form-control" formControlName="link" id="new-proyecto-input-link">
+        <div *ngIf="proyectoForm.get('link')?.touched && proyectoForm.get('link')?.errors?.['required']" class="alert alert-danger" >Este campo es requerido</div>
+    </div>
+    <div class="col-12">
+        <label for="new-proyecto-input-descripcion" class="form-label">Descripción</label>
+        <textarea class="form-control textarea" formControlName="descripcion" id="new-proyecto-input-descripcion"></textarea>
+        <div *ngIf="proyectoForm.get('descripcion')?.touched && proyectoForm.get('descripcion')?.errors?.['required']" class="alert alert-danger" >Este campo es requerido</div>
+    </div>
+    <div class="col-12">
+        <button type="submit" class="btn btn-primary" id="new-proyecto-btn" [disabled]="proyectoForm.invalid">Crear</button>
+    </div>
+</form>
