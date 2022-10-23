@@ -1,15 +1,14 @@
 <section class="educacion section-style"> 
     <h2 class="title-section">educacion</h2>
     <section class="container-seccion" id="container-educacion">
-        <div class="box-seccion" *ngFor="let educacion of miPorfolio.educacion">
+        <div class="box-seccion" *ngFor="let educacion of miEducacion">
             <div class="box-lado-izq">
-                <h3>{{educacion.fecha}}</h3>
-                <h4>{{educacion.nombre}}</h4>
+                <h3>{{educacion.fecha_inicio}} - {{educacion.fecha_fin}}</h3>
+                <h4>{{educacion.instituto}}</h4>
             </div>
             <div class="box-lado-dcho">
                 <h3>{{educacion.titulo}}</h3>
-                <h4>{{educacion["descripcion-curso"]}}</h4>
-                <h4 *ngIf="educacion.aclaracion">{{educacion.aclaracion}}</h4>
+                <h4>{{educacion.descripcion}}</h4>
             </div>
         </div>
     </section>
