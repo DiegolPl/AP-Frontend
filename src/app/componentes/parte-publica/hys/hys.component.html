@@ -1,11 +1,11 @@
 <section class="hys section-style">
     <h2 class="title-section">Hard & Soft Skills</h2>
     <section class="container-seccion" id="container-hys">
-        <div class="box-seccion" *ngFor="let skill of myPorfolio.hys">
-            <h3 class="skill-name">{{skill.nombre}}</h3>
+        <div class="box-seccion" *ngFor="let skill of miHabilidad">
+            <h3 class="skill-name">{{skill.habilidad}}</h3>
             <div class="skill-box">
                 <div class="skill-bar-bg">
-                    <div class="skill-bar" [style]="skill.style" [id]="skill.id"></div>
+                    <div class="skill-bar" [style]="'width:' + skill.porcentaje + '%;'"></div>
                 </div>
             </div>
         </div>

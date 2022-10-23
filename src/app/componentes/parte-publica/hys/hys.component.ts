@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
-import { DataTemporalService } from 'src/app/service/parte-publica/data-temporal.service';
+import { DataPublicaService } from 'src/app/service/parte-publica/data-publica.service';
 
 @Component({
   selector: 'app-hys',
@@ -9,15 +9,14 @@ import { DataTemporalService } from 'src/app/service/parte-publica/data-temporal
 })
 export class HysComponent implements OnInit {
 
-  myPorfolio:any = [];
+  miHabilidad:any = [];
+  porcentaje: string;
   faTimes = faTimes;
 
-  constructor(private dataTemporalService:DataTemporalService) { }
+  constructor(private dataPublicaService:DataPublicaService) { }
 
   ngOnInit(): void {
-    this.dataTemporalService.getData().subscribe(data => {
-      this.myPorfolio = data;
-    })
+    this.dataPublicaService.getHabilidades().subscribe(data => this.miHabilidad = data);
   }
 
 }
