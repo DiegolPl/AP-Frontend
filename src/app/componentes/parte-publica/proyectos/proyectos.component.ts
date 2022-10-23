@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
-import { DataTemporalService } from 'src/app/service/parte-publica/data-temporal.service';
+import { DataPublicaService } from 'src/app/service/parte-publica/data-publica.service';
 
 @Component({
   selector: 'app-proyectos',
@@ -9,13 +9,13 @@ import { DataTemporalService } from 'src/app/service/parte-publica/data-temporal
 })
 export class ProyectosComponent implements OnInit {
 
-  miPorfolio:any = [];
+  miProyecto:any = [];
   faTimes = faTimes;
 
-  constructor(private dataTemporalService:DataTemporalService) { }
+  constructor(private dataPublicaService:DataPublicaService) { }
 
   ngOnInit(): void {
-    this.dataTemporalService.getData().subscribe(data => this.miPorfolio = data);
+    this.dataPublicaService.getProyectos().subscribe(data => this.miProyecto = data);
   }
 
 }
