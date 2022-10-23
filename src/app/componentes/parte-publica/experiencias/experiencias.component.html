@@ -1,14 +1,14 @@
 <section class="experiencia section-style">
     <h2 class="title-section">experiencia</h2>
     <section class="container-seccion" id="container-experiencia">
-        <div class="box-seccion" *ngFor="let experiencia of miPorfolio.experiencias">
+        <div class="box-seccion" *ngFor="let experiencia of miExperiencia">
             <div class="box-lado-izq">
-                <h3>{{experiencia.fecha}}</h3>
-                <h4>{{experiencia.nombre}}</h4>
+                <h3>{{experiencia.fecha_inicio}} - {{experiencia.fecha_fin}}</h3>
+                <h4>{{experiencia.lugar}}</h4>
             </div>
             <div class="box-lado-dcho">
-                <h3>{{experiencia.cargo}}</h3>
-                <h4>{{experiencia["descripcion-cargo"]}}</h4>
+                <h3>{{experiencia.ocupacion}}</h3>
+                <h4>{{experiencia.descripcion}}</h4>
             </div>
         </div>
         <!-- <div class="container-experiencia-lado-izquierdo">
