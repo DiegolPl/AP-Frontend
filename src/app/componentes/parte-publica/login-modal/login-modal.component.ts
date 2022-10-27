@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
+import { LoginService } from 'src/app/service/parte-publica/login.service';
 
 @Component({
   selector: 'app-login-modal',
@@ -8,9 +11,12 @@ import { faTimes } from '@fortawesome/free-solid-svg-icons';
 })
 export class LoginModalComponent implements OnInit {
 
-  constructor() { }
+  loginForm:FormGroup;
+
+  constructor(private readonly fb:FormBuilder, private loginService: LoginService, private router:Router) { }
 
   ngOnInit(): void {
+    this.loginForm = this.initForm();
   }
 
   myPorfolio: any;
@@ -29,6 +35,7 @@ export class LoginModalComponent implements OnInit {
     // Vuelvo a bajar los labels (cambio estetico para que no queden flotando)
     document.getElementById('label-login-user')?.classList.remove('label-top');
     document.getElementById('label-login-pass')?.classList.remove('label-top');
+
   }
 
   // Subo los labels cuando detectan una tecla presionada para que no se superpongan (estetico)
@@ -52,37 +59,49 @@ export class LoginModalComponent implements OnInit {
 
   // Sistema de login
   login(){
-    // Tomo los valores
-    let userInput = document.getElementById('user-input') as HTMLInputElement;
-    let passInput = document.getElementById('pass-input') as HTMLInputElement;
-    let userValue = userInput.value;
-    let passValue = passInput.value;
+    console.log(this.loginForm.value)
+    
+    this.loginService.consultarUsuario(this.loginForm.value).subscribe(data => {
+      let validamosLogin:boolean = data;
+      if(validamosLogin){
 
-    // Los comparo con mi json para validar
-    if(userValue === this.myPorfolio.credenciales.username && passValue === this.myPorfolio.credenciales.password){
-      // Activo los iconos de edit
-      document.querySelectorAll('.menu-edit')?.forEach(icono => icono.classList.add('d-block'));
-      // Cierro la ventana de login
-      document.getElementById('modal-login')?.classList.toggle('modal-ventana-active');
-      // Elimino los valores de dicha ventana
-      userValue = "";
-      passValue = "";
-      // Remuevo el efecto de subir el label
-      document.getElementById('label-login-user')?.classList.remove('label-top');
-      document.getElementById('label-login-pass')?.classList.remove('label-top');
-      // Quito boton de login y habilito el de logout
-      document.getElementById('btn-login')?.classList.toggle('d-none');
-      document.getElementById('btn-logout')?.classList.toggle('d-none');
-      document.getElementById('btn-logout')?.classList.toggle('d-flex');
-      // Les quito la posibilidad de redireccion a los links de los proyectos
-      document.querySelectorAll('.proyecto A').forEach(el => el.classList.add('pointer-event-none'));
+        let tokenFake = "Tenemos un token";
+        sessionStorage.setItem("access-token",tokenFake);
 
-      
+        let userInput = document.getElementById('user-input') as HTMLInputElement;
+        let passInput = document.getElementById('pass-input') as HTMLInputElement;
+        let userValue = userInput.value;
+        let passValue = passInput.value;
 
-    }else {
-      // Si se equivocan en el usuario o contraseña se los hago saber
-      alert('Usuario y/o contraseña inválida');
-    }
+        // Cierro la ventana de login
+        document.getElementById('modal-login')?.classList.toggle('modal-ventana-active');
+        // Elimino los valores de dicha ventana
+        userValue = "";
+        passValue = "";
+        // Remuevo el efecto de subir el label
+        document.getElementById('label-login-user')?.classList.remove('label-top');
+        document.getElementById('label-login-pass')?.classList.remove('label-top');
+        // Quito boton de login y habilito el de logout
+        document.getElementById('btn-login')?.classList.toggle('d-none');
+        document.getElementById('btn-logout')?.classList.toggle('d-none');
+        document.getElementById('btn-logout')?.classList.toggle('d-flex');
+
+        console.log('Entramo')
+        
+        this.router.navigate(["/dashboard"]);
+        console.log('Navegamos?')
+
+      }else{
+        alert('Usuario y/o contraseña inválida');
+      }
+    })
+  }
+
+  initForm():FormGroup {
+    return this.fb.group({
+      username: ['',[Validators.required]],
+      password: ['',[Validators.required]]
+    })
   }
 
 }

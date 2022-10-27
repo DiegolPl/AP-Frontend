@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { faGithub, faInstagram, faTwitter } from '@fortawesome/free-brands-svg-icons';
 import { faBars, faTimes, faUser } from '@fortawesome/free-solid-svg-icons';
 
@@ -17,6 +18,8 @@ export class HeaderComponent implements OnInit {
   faBars = faBars;
 
   myPorfolio:any = [];
+
+  constructor(private router:Router) { }
 
   // Abrir menu desde el boton de hamburguesa en versiones moviles
   activarMenu(){
@@ -49,18 +52,20 @@ export class HeaderComponent implements OnInit {
     // Cambio los botones de logout x login
     document.getElementById('btn-login')?.classList.remove('d-none');
     document.getElementById('btn-logout')?.classList.add('d-none');
-    // Desactivo los botones de edit
-    document.querySelectorAll('.material-icons-outlined').forEach(icono => icono.classList.remove('d-block'));
-    // Les devuelvo el redireccionamiento a los proyectos
-    document.querySelectorAll('.proyecto A').forEach(el => el.classList.remove('pointer-event-none'));
+    
+    console.log('Entre a cerrar sesion?')
+    sessionStorage.removeItem("access-token");
+
+    let anchoVentana = window.innerWidth;
+
+    if(anchoVentana < 767){
+      this.desactivarMenu()
+    }
+    this.router.navigate(['/index'])
     
   }
-  constructor() { }
 
   ngOnInit(): void {
-    // this.dataPorfolio.getDatos().subscribe(data=>{
-    //   this.myPorfolio = data;
-    // })
   }
 
 }

@@ -24,8 +24,8 @@
             <fa-icon [icon]="faUser" id="icono-user"></fa-icon>
             <p class="link-name">Login</p>
         </a>
-        <a class="link login-btn d-none" id="btn-logout">
-            <fa-icon [icon]="faUser" id="icono-logout" title="Cerrar sesión" (click)="logout()"></fa-icon>
+        <a class="link login-btn d-none" id="btn-logout" (click)="logout()">
+            <fa-icon [icon]="faUser" id="icono-logout" title="Cerrar sesión"></fa-icon>
             <p class="link-name">Logout</p>
         </a>
     </nav>
