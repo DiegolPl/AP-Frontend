@@ -4,11 +4,11 @@ import { faGithub, faInstagram, faTwitter } from '@fortawesome/free-brands-svg-i
 import { faBars, faTimes, faUser } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
-  selector: 'app-header',
-  templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css']
+  selector: 'app-header-dashboard',
+  templateUrl: './header-dashboard.component.html',
+  styleUrls: ['./header-dashboard.component.css']
 })
-export class HeaderComponent implements OnInit {
+export class HeaderDashboardComponent implements OnInit {
 
   faTimes = faTimes;
   faGithub = faGithub;
@@ -35,18 +35,21 @@ export class HeaderComponent implements OnInit {
     document.getElementById('menu-btn')?.classList.toggle('d-none');
   }
 
-  // Abrir ventana login
-  abrirLogin(){
-    // Activo la ventana
-    document.getElementById('modal-login')?.classList.toggle('modal-ventana-active');
-    // Fuerzo el cierre y cambios necesarios de los botones de menu para evitar bugs
-    document.getElementById('menu-btn-close')?.classList.add('d-none');
-    document.getElementById('menu-navbar')?.classList.remove('active');
-    document.getElementById('menu-btn')?.classList.remove('d-none');
-    document.getElementById('menu-btn')?.classList.add('d-block');
-    document.getElementById('menu-btn')?.classList.add('d-md-none');
+  // Sistema de deslogueo
+  logout() {
+    
+    sessionStorage.removeItem("access-token");
+
+    let anchoVentana = window.innerWidth;
+
+    if(anchoVentana < 767){
+      this.desactivarMenu()
+    }
+    
+    this.router.navigate(['/index'])
+    
   }
-  
+
   ngOnInit(): void {
   }
 

@@ -1,0 +1,16 @@
+<header class="header">
+    <div class="logo">
+        <img src="../../../assets/images/logo-argpro.png" alt="Logo Argentina Programa" class="logo-img">
+        <div class="logo-text">
+            <h2>Argentina Programa</h2>
+            <h3>#YoProgramo</h3>
+        </div>
+    </div>
+    <nav class="menu-navbar swap" id="menu-navbar">
+        <a class="link login-btn d-block" id="btn-logout" (click)="logout()">
+            <p class="link-name">Cerrar Sesión</p>
+        </a>
+    </nav>
+    <fa-icon [icon]="faBars" class="menu-btn fa-bars" id="menu-btn" (click)="activarMenu()"></fa-icon>
+    <fa-icon [icon]="faTimes" class="menu-btn fa-times d-none" id="menu-btn-close" (click)="desactivarMenu()"></fa-icon>
+</header>

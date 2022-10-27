@@ -1,6 +1,5 @@
 <div class="modal-ventana" id="modal-login">
     <form class="form-login" [formGroup]="loginForm" (ngSubmit)="login()">
-        <!-- <i class="fa-solid fa-xmark modal-close-btn" id="modal-close-btn"></i> -->
         <fa-icon [icon]="faTimes" class="modal-close-btn" id="modal-close-btn" (click)="cerrarLogin()" ></fa-icon>
         <h2 class="form-login-title">Inicia sesión!</h2>
         <div class="modal-box user-box">
@@ -12,6 +11,5 @@
             <label for="pass-input" id="label-login-pass" class="label-login">Contraseña</label>
         </div>
         <button class="form-login-btn" id="form-login-btn" [disabled]="loginForm.invalid">Ingresar</button>
-        <!-- <input type="button" value="Ingresar" > -->
     </form>
 </div>

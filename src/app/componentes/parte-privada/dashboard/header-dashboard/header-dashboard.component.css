@@ -1,0 +1,192 @@
+:root {
+    --darkBlue:#1C658C;
+    --lightBlue:#398AB9;
+    --lightBrown:#D8D2CB;
+    --white:#EEEEEE;
+}
+
+.header {
+    width: 100%;
+    background-color: var(--lightBlue);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: .5rem;
+    position: relative;
+}
+
+.logo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.logo-img {
+    display: block;
+    width: 5rem;
+    height: 5rem;
+    object-fit: cover;
+    object-position: center;
+}
+
+.logo-text {
+    color: var(--white);
+}
+
+.logo-text h2 {
+    font-size: 1.3rem;
+    margin: 0;
+}
+
+.logo-text h3 {
+    font-size: 1.2rem;
+    margin: 0;
+}
+
+.menu-navbar {
+    position: absolute;
+    z-index: 95000;
+    top: 99%;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 84.5vh;
+    background-color: var(--lightBlue);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* gap: 2rem; */
+    /* padding-top: 15rem; */
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    transition: clip-path .3s linear;
+
+}
+
+.active {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}
+
+.menu-navbar .link {
+    text-decoration: none;
+    color: inherit;
+    width: 60%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 2rem;
+    padding: 1rem 2rem;
+    font-size: 1.5rem;
+    color: var(--white);
+    font-weight: 300;
+    text-align: center;
+}
+
+.menu-navbar .link.login-btn {
+    border-radius: 2rem;
+    padding: 1rem 2rem;
+    background-color: var(--lightBrown);
+    color: var(--darkBlue);
+    text-align: center;
+    cursor: pointer;
+}
+
+p.link-name {
+    margin: 0;
+    font-weight: 500;
+}
+
+.menu-btn {
+    padding-right: 2rem;
+    font-size: 2.25rem;
+    color: var(--white);
+}
+
+.fa-xmark {
+    font-size: 2.5rem;
+}
+
+@media (min-width:768px){
+
+    .header {
+        padding: 0 .5rem;
+    }
+
+    .logo-text {
+        font-size: 1rem;
+    }
+    
+    .logo-img {
+        width: 4rem;
+        height: 4rem;
+    }
+
+    .menu-navbar {
+        position: relative;
+        z-index: 100;
+        width: max-content;
+        top: initial;
+        left: initial;
+        right: initial;
+        width: initial;
+        height: initial;
+        background-color: transparent;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 0;
+        padding-top: 0;
+        clip-path: initial;
+        transition: none;
+    }
+    
+    .menu-navbar .link.login-btn {
+        font-weight: 400;
+        padding: .5rem .5rem;
+        width: 150px;
+        cursor: pointer;
+    }
+
+    .menu-navbar .link {
+        margin: .6rem;
+        padding: .7rem .7rem;
+        font-size: 1rem;
+    }
+
+    .menu-navbar .link:hover {
+        background-color: var(--white);
+        color: var(--darkBlue);
+    }
+    
+    .header #menu-btn {
+        display: none;
+    }
+
+    .modal-ventana {
+        backdrop-filter: blur(.3rem);
+    }
+
+    .form-login {
+        --darkBlue:#12435e;
+        --lightBlue:#2a6588;
+        position: relative;
+        width: 40%;
+        min-height: 400px;
+        padding: 5rem 5rem;
+        background-image: linear-gradient(40deg, var(--lightBlue) 30%, var(--darkBlue) 70%);
+    }
+    
+    @media screen and (max-width: 400px){
+        .menu-navbar a.link {
+            width: 30%;
+            gap: 4rem;
+        }
+
+        .menu-navbar a.link.login-btn {
+            width: 50%;
+        }
+    }
+    
+}

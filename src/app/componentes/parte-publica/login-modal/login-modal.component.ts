@@ -81,15 +81,8 @@ export class LoginModalComponent implements OnInit {
         // Remuevo el efecto de subir el label
         document.getElementById('label-login-user')?.classList.remove('label-top');
         document.getElementById('label-login-pass')?.classList.remove('label-top');
-        // Quito boton de login y habilito el de logout
-        document.getElementById('btn-login')?.classList.toggle('d-none');
-        document.getElementById('btn-logout')?.classList.toggle('d-none');
-        document.getElementById('btn-logout')?.classList.toggle('d-flex');
-
-        console.log('Entramo')
         
         this.router.navigate(["/dashboard"]);
-        console.log('Navegamos?')
 
       }else{
         alert('Usuario y/o contraseña inválida');
