@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ExperienciaService } from 'src/app/service/parte-privada/experiencia.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-experiencia-delete',
@@ -42,9 +43,28 @@ export class ExperienciaDeleteComponent implements OnInit {
   }
 
   deleteExperiencia(){
-    let idInput = document.getElementById('delete-experiencia-input-id') as HTMLInputElement;
-    let idNumerico = Number(idInput.value);
-    this.expService.deleteExperiencia(idNumerico).subscribe(data => data);
+
+    Swal.fire({
+      title: 'Estás seguro?',
+      text: "Por favor, confirma los cambios",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Eliminar'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        let idInput = document.getElementById('delete-experiencia-input-id') as HTMLInputElement;
+        let idNumerico = Number(idInput.value);
+        this.expService.deleteExperiencia(idNumerico).subscribe(data => data);
+        Swal.fire(
+          'Éxito!',
+          'El elemento fue eliminado correctamente.',
+          'success'
+        )
+        this.experienciaForm.reset('');
+      }
+    })
   }
 
   initForm():FormGroup {

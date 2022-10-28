@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ExperienciaService } from 'src/app/service/parte-privada/experiencia.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-experiencia-edit',
@@ -41,11 +42,29 @@ export class ExperienciaEditComponent implements OnInit {
   }
 
   editarExperiencia(){
-    let idInput = document.getElementById('edit-experiencia-input-id') as HTMLInputElement;
-    let idNumerico = Number(idInput.value);
-    let datosFormulario = this.experienciaForm.value;
-    datosFormulario['id'] = idNumerico;
-    this.expService.editExperiencia(datosFormulario).subscribe(data => data);
+
+    Swal.fire({
+      title: 'Estás seguro?',
+      text: "Por favor, confirma los cambios",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Confirmar'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        let idInput = document.getElementById('edit-experiencia-input-id') as HTMLInputElement;
+        let idNumerico = Number(idInput.value);
+        let datosFormulario = this.experienciaForm.value;
+        datosFormulario['id'] = idNumerico;
+        this.expService.editExperiencia(datosFormulario).subscribe(data => data);
+        Swal.fire(
+          'Éxito!',
+          'El elemento fue editado correctamente.',
+          'success'
+        )
+      }
+    })
   }
 
   initForm():FormGroup {

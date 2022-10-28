@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ExperienciaService } from 'src/app/service/parte-privada/experiencia.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-experiencia-new',
@@ -18,9 +19,13 @@ export class ExperienciaNewComponent implements OnInit {
   }
 
   agregarExperiencia(): void{
-    console.log('Anda este metodo')
-    console.log(this.experienciaForm.value)
     this.expService.addExperiencia(this.experienciaForm.value).subscribe(data => data);
+    Swal.fire(
+      'Éxito!',
+      'El elemento fue agregado correctamente!',
+      'success'
+    )
+    this.experienciaForm.reset('');
   }
 
   initForm():FormGroup {
