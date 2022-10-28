@@ -38,6 +38,42 @@ export class HeaderDashboardComponent implements OnInit {
 
   // Sistema de deslogueo
   logout() {
+
+    let anchoVentana = window.innerWidth;
+    
+    if(anchoVentana < 767){
+      this.desactivarMenu()
+      Swal.fire({
+        target:'#menu-navbar',
+        title: 'Cerrar Sesión',
+        text: "Estás seguro que deseas cerrar la sesión?",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Cerrar sesión'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          sessionStorage.removeItem("access-token");
+          this.router.navigate(['/index'])      
+        }
+      })
+    }else{
+      Swal.fire({
+        title: 'Cerrar Sesión',
+        text: "Estás seguro que deseas cerrar la sesión?",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Cerrar sesión'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          sessionStorage.removeItem("access-token");
+          this.router.navigate(['/index'])      
+        }
+      })
+    }
     
     Swal.fire({
       title: 'Cerrar Sesión',
@@ -51,11 +87,7 @@ export class HeaderDashboardComponent implements OnInit {
       if (result.isConfirmed) {
         sessionStorage.removeItem("access-token");
 
-        let anchoVentana = window.innerWidth;
-    
-        if(anchoVentana < 767){
-          this.desactivarMenu()
-        }
+        
         
         this.router.navigate(['/index'])      
       }
