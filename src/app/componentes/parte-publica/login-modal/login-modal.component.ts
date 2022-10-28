@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import { LoginService } from 'src/app/service/parte-publica/login.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-login-modal',
@@ -85,7 +86,12 @@ export class LoginModalComponent implements OnInit {
         this.router.navigate(["/dashboard"]);
 
       }else{
-        alert('Usuario y/o contraseña inválida');
+        Swal.fire({
+          target:'#modal-login',
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Usuario y/o contraseña inválida'
+        })
       }
     })
   }
