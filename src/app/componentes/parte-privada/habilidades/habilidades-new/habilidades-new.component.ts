@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HabilidadService } from 'src/app/service/parte-privada/habilidad.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-habilidades-new',
@@ -19,6 +20,12 @@ export class HabilidadesNewComponent implements OnInit {
 
   agregarHabilidad(): void{
     this.habilidadService.addHabilidad(this.habilidadForm.value).subscribe(data => data);
+    Swal.fire(
+      'Éxito!',
+      'El elemento fue agregado correctamente!',
+      'success'
+    )
+    this.habilidadForm.reset('');
   }
 
   initForm():FormGroup {

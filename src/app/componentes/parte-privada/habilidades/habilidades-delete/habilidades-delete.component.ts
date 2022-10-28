@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HabilidadService } from 'src/app/service/parte-privada/habilidad.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-habilidades-delete',
@@ -39,9 +40,30 @@ export class HabilidadesDeleteComponent implements OnInit {
   }
 
   eliminarHabilidad(){
-    let idInput = document.getElementById('delete-habilidades-input-id') as HTMLInputElement;
-    let idNumerico = Number(idInput.value);
-    this.habilidadService.deleteHabilidad(idNumerico).subscribe(data => data);
+
+    Swal.fire({
+      title: 'Estás seguro?',
+      text: "Por favor, confirma los cambios",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Eliminar'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        let idInput = document.getElementById('delete-habilidades-input-id') as HTMLInputElement;
+        let idNumerico = Number(idInput.value);
+        this.habilidadService.deleteHabilidad(idNumerico).subscribe(data => data);
+        Swal.fire(
+          'Éxito!',
+          'El elemento fue eliminado correctamente.',
+          'success'
+        )
+        this.habilidadForm.reset('');
+      }
+    })
+
+    
   }
 
   initForm():FormGroup {
