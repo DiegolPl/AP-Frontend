@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { EducacionService } from 'src/app/service/parte-privada/educacion.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-educacion-delete',
@@ -11,7 +13,7 @@ export class EducacionDeleteComponent implements OnInit {
 
   educacionForm: FormGroup;
 
-  constructor(private readonly fb:FormBuilder, private eduService:EducacionService) { }
+  constructor(private readonly fb:FormBuilder, private eduService:EducacionService, private router:Router) { }
 
   ngOnInit(): void {
 
@@ -41,9 +43,30 @@ export class EducacionDeleteComponent implements OnInit {
   }
 
   eliminarEducacion(){
-    let idInput = document.getElementById('delete-educacion-input-id') as HTMLInputElement;
-    let idNumerico = Number(idInput.value);
-    this.eduService.deleteEducacion(idNumerico).subscribe(data => data);
+
+    Swal.fire({
+      title: 'Estás seguro?',
+      text: "Por favor, confirma los cambios",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Eliminar'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        let idInput = document.getElementById('delete-educacion-input-id') as HTMLInputElement;
+        let idNumerico = Number(idInput.value);
+        this.eduService.deleteEducacion(idNumerico).subscribe(data => data);
+        Swal.fire(
+          'Éxito!',
+          'El elemento fue eliminado correctamente.',
+          'success'
+        )
+        this.educacionForm.reset('');
+      }
+    })
+
+    
   }
 
   initForm():FormGroup {

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { EducacionService } from 'src/app/service/parte-privada/educacion.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-educacion-new',
@@ -18,8 +19,13 @@ export class EducacionNewComponent implements OnInit {
   }
 
   agregarEducacion(): void{
-    console.log(this.educacionForm.value)
     this.eduService.addEducacion(this.educacionForm.value).subscribe(data => data);
+    Swal.fire(
+      'Éxito!',
+      'El elemento fue agregado correctamente!',
+      'success'
+    )
+    this.educacionForm.reset('');
   }
 
   initForm():FormGroup {

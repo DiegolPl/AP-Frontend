@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { EducacionService } from 'src/app/service/parte-privada/educacion.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-educacion-edit',
@@ -41,11 +42,30 @@ export class EducacionEditComponent implements OnInit {
   }
 
   editarEducacion(){
-    let idInput = document.getElementById('edit-educacion-input-id') as HTMLInputElement;
-    let idNumerico = Number(idInput.value);
-    let datosFormulario = this.educacionForm.value;
-    datosFormulario['id'] = idNumerico;
-    this.eduService.editEducacion(datosFormulario).subscribe(data => data);
+
+    Swal.fire({
+      title: 'Estás seguro?',
+      text: "Por favor, confirma los cambios",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Confirmar'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        let idInput = document.getElementById('edit-educacion-input-id') as HTMLInputElement;
+        let idNumerico = Number(idInput.value);
+        let datosFormulario = this.educacionForm.value;
+        datosFormulario['id'] = idNumerico;
+        this.eduService.editEducacion(datosFormulario).subscribe(data => data);
+        Swal.fire(
+          'Éxito!',
+          'El elemento fue editado correctamente.',
+          'success'
+        )
+      }
+    })
+
   }
 
   initForm():FormGroup {
