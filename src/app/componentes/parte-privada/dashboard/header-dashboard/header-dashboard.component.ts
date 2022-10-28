@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { faGithub, faInstagram, faTwitter } from '@fortawesome/free-brands-svg-icons';
 import { faBars, faTimes, faUser } from '@fortawesome/free-solid-svg-icons';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-header-dashboard',
@@ -38,15 +39,27 @@ export class HeaderDashboardComponent implements OnInit {
   // Sistema de deslogueo
   logout() {
     
-    sessionStorage.removeItem("access-token");
+    Swal.fire({
+      title: 'Cerrar Sesión',
+      text: "Estás seguro que deseas cerrar la sesión?",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Cerrar sesión'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        sessionStorage.removeItem("access-token");
 
-    let anchoVentana = window.innerWidth;
-
-    if(anchoVentana < 767){
-      this.desactivarMenu()
-    }
+        let anchoVentana = window.innerWidth;
     
-    this.router.navigate(['/index'])
+        if(anchoVentana < 767){
+          this.desactivarMenu()
+        }
+        
+        this.router.navigate(['/index'])      
+      }
+    })
     
   }
 
