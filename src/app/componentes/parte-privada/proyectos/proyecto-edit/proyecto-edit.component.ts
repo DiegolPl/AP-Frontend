@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ProyectoService } from 'src/app/service/parte-privada/proyecto.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-proyecto-edit',
@@ -42,12 +43,31 @@ export class ProyectoEditComponent implements OnInit {
   
   //Accion a realizar el envio del formulario
   editarProyecto(){
-    let idInput = document.getElementById('edit-proyecto-input-id') as HTMLInputElement;
-    let idNumerico = Number(idInput.value);
-    let datosFormulario = this.proyectoForm.value;
-    datosFormulario['id_proyecto'] = idNumerico;
-    console.log(datosFormulario)
-    this.proyectoService.editProyecto(datosFormulario).subscribe(data => data);
+
+    Swal.fire({
+      title: 'Estás seguro?',
+      text: "Por favor, confirma los cambios",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Confirmar'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        let idInput = document.getElementById('edit-proyecto-input-id') as HTMLInputElement;
+        let idNumerico = Number(idInput.value);
+        let datosFormulario = this.proyectoForm.value;
+        datosFormulario['id_proyecto'] = idNumerico;
+        this.proyectoService.editProyecto(datosFormulario).subscribe(data => data);
+        Swal.fire(
+          'Éxito!',
+          'El elemento fue editado correctamente.',
+          'success'
+        )
+      }
+    })
+
+    
   }
 
   getProyecto(){

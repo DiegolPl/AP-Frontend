@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ProyectoService } from 'src/app/service/parte-privada/proyecto.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-proyecto-new',
@@ -37,8 +38,13 @@ export class ProyectoNewComponent implements OnInit {
   }
 
   agregarProyecto(): void{
-    console.log(this.proyectoForm.value)
     this.proyectoService.addProyecto(this.proyectoForm.value).subscribe(data => data);
+    Swal.fire(
+      'Éxito!',
+      'El elemento fue agregado correctamente!',
+      'success'
+    )
+    this.proyectoForm.reset('');
   }
 
   initForm():FormGroup {
