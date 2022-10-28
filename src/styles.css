@@ -21,6 +21,10 @@ body {
     background-color: var(--white);
 }
 
+.btn-reset-form {
+    margin-left: .5rem;
+}
+
 .modal-ventana {
     position: fixed;
     top: 0;
