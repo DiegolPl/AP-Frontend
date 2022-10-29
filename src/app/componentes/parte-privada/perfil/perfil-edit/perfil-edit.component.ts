@@ -23,7 +23,7 @@ export class PerfilEditComponent implements OnInit {
   }
 
   onChange(event: any){
-    this.files.push(...event.addedFiles);
+    this.files.push(event.target.files[0]);
     
     if(!this.files[0]){
       Swal.fire({
