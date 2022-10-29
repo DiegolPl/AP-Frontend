@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { CloudinaryService } from 'src/app/service/cloudinary.service';
 import { PerfilService } from 'src/app/service/parte-privada/perfil.service';
 import Swal from 'sweetalert2';
 
@@ -11,35 +12,68 @@ import Swal from 'sweetalert2';
 export class PerfilEditComponent implements OnInit {
 
   datos:any;
+  files:File[] = [];
   perfilForm:FormGroup
 
-  constructor(private readonly fb:FormBuilder, private perfilService:PerfilService) { }
+  constructor(private readonly fb:FormBuilder, private perfilService:PerfilService, private cloudinaryService: CloudinaryService) { }
 
   ngOnInit(): void {
     this.datos = this.getPerfil(1)
     this.perfilForm = this.initForm();
   }
 
-  //Evento para guardar el archivo en el formulario - evento change
-  archivo:any;
-
-  onChange(e: any) {
-    let extensionAllowed: any = { "png": true, "jpeg": true, "jpg": true };
-    let file = e.target.files[0];
-    if (file.size / 1024 / 1024 > 20) {
-      alert("File size should be less than 20MB")
-      return;
+  onChange(event: any){
+    this.files.push(...event.addedFiles);
+    
+    if(!this.files[0]){
+      Swal.fire({
+        target:'#modal-login',
+        icon: 'warning',
+        title: 'Oops...',
+        text: 'Debes subir una imagen'
+      })
+    }else{
+      this.uploadPhoto();
     }
-    if (extensionAllowed) {
-      var nam = file.name.split('.').pop();
-      if (!extensionAllowed[nam]) {
-        alert("Please upload " + Object.keys(extensionAllowed) + " file.")
-        return;
-      }
-    }
-    this.archivo = file;
-    this.perfilForm.controls["archivo"].setValue(file);
   }
+
+  uploadPhoto(){
+    
+      const file_data = this.files[0];
+      const data = new FormData();
+      data.append('file',file_data);
+      data.append('upload_preset', 'perfil');
+      data.append('cloud_name', 'apalmacen');
+
+      this.cloudinaryService.uploadImage(data).subscribe(response => {
+        if(response){
+          console.log(response.secure_url)
+          this.perfilForm.controls["urlImg"].setValue(response.secure_url);
+        }
+      })
+
+  }
+
+  //Evento para guardar el archivo en el formulario - evento change
+  // archivo:any;
+
+  // onChange(e: any) {
+  //   let extensionAllowed: any = { "png": true, "jpeg": true, "jpg": true };
+  //   let file = e.target.files[0];
+  //   if (file.size / 1024 / 1024 > 20) {
+  //     alert("File size should be less than 20MB")
+  //     return;
+  //   }
+  //   if (extensionAllowed) {
+  //     var nam = file.name.split('.').pop();
+  //     if (!extensionAllowed[nam]) {
+  //       alert("Please upload " + Object.keys(extensionAllowed) + " file.")
+  //       return;
+  //     }
+  //   }
+  //   this.archivo = file;
+  //   this.perfilForm.controls["archivo"].setValue(file);
+  // }
 
   //Accion a realizar el envio del formulario
   onEditPerfil(){
@@ -73,7 +107,7 @@ export class PerfilEditComponent implements OnInit {
       
       this.perfilForm.setValue({
         id: "1",
-        archivo: "",
+        urlImg: data.urlImg,
         nombre: data.nombre,
         titulo: data.titulo,
         sobreMi: data.sobreMi
@@ -85,7 +119,7 @@ export class PerfilEditComponent implements OnInit {
   initForm():FormGroup {
     return this.fb.group({
       id: [''],
-      archivo: [''],
+      urlImg:['',[Validators.required]],
       nombre: ['',[Validators.required]],
       titulo: ['',[Validators.required]],
       sobreMi: ['',[Validators.required]]

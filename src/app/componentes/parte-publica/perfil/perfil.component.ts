@@ -10,7 +10,6 @@ import { DataPublicaService } from 'src/app/service/parte-publica/data-publica.s
 export class PerfilComponent implements OnInit {
 
   miPerfil:any = [];
-  userImage:any;
   faTimes = faTimes;
 
   constructor(private dataPublicaService:DataPublicaService) { }

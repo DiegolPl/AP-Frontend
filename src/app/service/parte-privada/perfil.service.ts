@@ -16,6 +16,10 @@ export class PerfilService {
   }
   
   editPerfil(perfil:any):Observable<any>{
-    return this.http.put(`${this.apiServerUrl}perfil/editar`, perfil, {headers: {"Content-Type":"multipart/form-data; boundary=----WebKitFormBoundaryWirmvD3mchDxjJob"}});
+    return this.http.put(`${this.apiServerUrl}perfil/editar`, perfil);
   }
+
+  // editPerfil(perfil:any):Observable<any>{
+  //   return this.http.put(`${this.apiServerUrl}perfil/editar`, perfil, {headers: {"Content-Type":"multipart/form-data; boundary=----WebKitFormBoundaryWirmvD3mchDxjJob"}});
+  // }
 }
