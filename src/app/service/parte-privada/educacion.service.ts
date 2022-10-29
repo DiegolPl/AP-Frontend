@@ -7,22 +7,23 @@ import { Observable } from 'rxjs';
 })
 export class EducacionService {
 
+  private apiServerUrl = 'https://apbackdiego.herokuapp.com/';
+
   constructor(private http: HttpClient) { }
 
   addEducacion(educacion:any):Observable<any>{
-    return this.http.post("http://localhost:8080/educacion/crear", educacion);
+    return this.http.post(`${this.apiServerUrl}educacion/crear`, educacion);
   }
 
   getEducacion(id: number):Observable<any>{
-    return this.http.get(`http://localhost:8080/educacion/edu/${id}`);
+    return this.http.get(`${this.apiServerUrl}educacion/edu/${id}`);
   }
 
   editEducacion(educacion:any):Observable<any>{
-    return this.http.put("http://localhost:8080/educacion/editar", educacion);
+    return this.http.put(`${this.apiServerUrl}educacion/editar`, educacion);
   }
 
   deleteEducacion(id: number):Observable<any>{
-    console.log('el service anda')
-    return this.http.delete(`http://localhost:8080/educacion/delete/${id}`);
+    return this.http.delete(`${this.apiServerUrl}educacion/delete/${id}`);
   }
 }

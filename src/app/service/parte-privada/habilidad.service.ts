@@ -6,21 +6,24 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class HabilidadService {
+
+  private apiServerUrl = 'https://apbackdiego.herokuapp.com/';
+
   constructor(private http:HttpClient) { }
 
   addHabilidad(habilidad:any):Observable<any>{
-    return this.http.post("http://localhost:8080/habilidades/crear", habilidad);
+    return this.http.post(`${this.apiServerUrl}habilidades/crear`, habilidad);
   }
 
   getHabilidad(id: number):Observable<any>{
-    return this.http.get(`http://localhost:8080/habilidades/habilidad/${id}`);
+    return this.http.get(`${this.apiServerUrl}habilidades/habilidad/${id}`);
   }
 
   editHabilidad(habilidad:any):Observable<any>{
-    return this.http.put("http://localhost:8080/habilidades/editar", habilidad);
+    return this.http.put(`${this.apiServerUrl}habilidades/editar`, habilidad);
   }
 
   deleteHabilidad(id: number):Observable<any>{
-    return this.http.delete(`http://localhost:8080/habilidades/delete/${id}`);
+    return this.http.delete(`${this.apiServerUrl}habilidades/delete/${id}`);
   }
 }

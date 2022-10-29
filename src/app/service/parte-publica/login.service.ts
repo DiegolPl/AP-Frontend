@@ -7,10 +7,12 @@ import { Observable } from 'rxjs';
 })
 export class LoginService {
 
+  private apiServerUrl = 'https://apbackdiego.herokuapp.com/';
+
   constructor(private http:HttpClient) {}
 
   consultarUsuario(data:any):Observable<any>{
-    return this.http.post("http://localhost:8080/login/verificar",data);
+    return this.http.post(`${this.apiServerUrl}login/verificar`,data);
   }
 
 }

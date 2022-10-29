@@ -7,17 +7,15 @@ import { Observable } from 'rxjs';
 })
 export class PerfilService {
 
+  private apiServerUrl = 'https://apbackdiego.herokuapp.com/';
+
   constructor(private http: HttpClient) { }
 
   getPerfil(id:number):Observable<any>{
-    return this.http.get(`http://localhost:8080/perfil/${id}`);
+    return this.http.get(`${this.apiServerUrl}perfil/${id}`);
   }
   
   editPerfil(perfil:any):Observable<any>{
-    return this.http.put("http://localhost:8080/perfil/editar", perfil, {headers: {"Content-Type":"multipart/form-data; boundary=----WebKitFormBoundaryWirmvD3mchDxjJob"}});
-  }
-  
-  editPerfilSinFoto(perfil:any):Observable<any>{
-    return this.http.put("http://localhost:8080/perfil/editar-sin-foto",perfil);
+    return this.http.put(`${this.apiServerUrl}perfil/editar`, perfil, {headers: {"Content-Type":"multipart/form-data; boundary=----WebKitFormBoundaryWirmvD3mchDxjJob"}});
   }
 }

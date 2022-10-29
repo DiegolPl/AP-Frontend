@@ -6,21 +6,24 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ExperienciaService {
+
+  private apiServerUrl = 'https://apbackdiego.herokuapp.com/';
+
   constructor(private http: HttpClient) { }
 
   addExperiencia(experiencia:any):Observable<any>{
-    return this.http.post("http://localhost:8080/experiencias/crear", experiencia);
+    return this.http.post(`${this.apiServerUrl}experiencias/crear`, experiencia);
   }
 
   getExperiencia(id: number):Observable<any>{
-    return this.http.get(`http://localhost:8080/experiencias/exp/${id}`);
+    return this.http.get(`${this.apiServerUrl}experiencias/exp/${id}`);
   }
 
   editExperiencia(experiencia:any):Observable<any>{
-    return this.http.put("http://localhost:8080/experiencias/editar", experiencia);
+    return this.http.put(`${this.apiServerUrl}experiencias/editar`, experiencia);
   }
 
   deleteExperiencia(id: number):Observable<any>{
-    return this.http.delete(`http://localhost:8080/experiencias/delete/${id}`);
+    return this.http.delete(`${this.apiServerUrl}experiencias/delete/${id}`);
   }
 }

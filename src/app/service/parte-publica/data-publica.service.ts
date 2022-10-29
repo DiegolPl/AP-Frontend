@@ -7,25 +7,27 @@ import { Observable } from 'rxjs';
 })
 export class DataPublicaService {
 
+  private apiServerUrl = 'https://apbackdiego.herokuapp.com/';
+
   constructor(private http:HttpClient) { }
 
   getPerfil():Observable<any> {
-    return this.http.get("http://localhost:8080/perfil/1");
+    return this.http.get(`${this.apiServerUrl}perfil/1`);
   }
 
   getExperiencias():Observable<any> {
-    return this.http.get("http://localhost:8080/experiencias/listar")
+    return this.http.get(`${this.apiServerUrl}experiencias/listar`)
   }
 
   getEducacion():Observable<any> {
-    return this.http.get("http://localhost:8080/educacion/listar")
+    return this.http.get(`${this.apiServerUrl}educacion/listar`)
   }
 
   getHabilidades():Observable<any> {
-    return this.http.get("http://localhost:8080/habilidades/listar")
+    return this.http.get(`${this.apiServerUrl}habilidades/listar`)
   }
 
   getProyectos():Observable<any> {
-    return this.http.get("http://localhost:8080/proyectos/listar")
+    return this.http.get(`${this.apiServerUrl}proyectos/listar`)
   }
 }
