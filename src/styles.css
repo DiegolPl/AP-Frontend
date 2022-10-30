@@ -8,7 +8,6 @@
 html {
     box-sizing: border-box;
     font-family: 'Roboto', sans-serif;
-    /* font-size: 60%; */
 }
 
 * {
@@ -133,64 +132,8 @@ body {
     cursor: pointer;
 }
 
-.form-edit .modal-box-edit {
-    width: 100%;
-    display: grid;
-    gap: 1rem;
-}
-
-.modal-box-edit label {
-    font-size: 1.8rem;
-    text-transform: uppercase;
-}
-
-.modal-box-edit input[type="text"],
-.modal-box-edit input[type="number"] {
-    border: none;
-    border-bottom: 3px solid var(--darkBlue);
-    outline: none;
-    color: var(--white);
-    background-color: transparent;
-    font-size: 1.8rem;
-}
-
-.form-edit .modal-box-edit-textarea {
-    display: flex;
-    gap: .5rem;
-    flex-direction: column;
-}
-
-.modal-box-edit textarea {
-    resize: none;
-    overflow-x: hidden;
-    overflow-y: auto;
-    min-height: 150px;
-    border: 3px solid var(--darkBlue);
-    outline: none;
-    color: var(--darkBlue);
-    background-color: var(--lightBrown);
-    font-size: 1.5rem;
-    padding: .75rem;
-}
-
 .pointer-event-none {
     pointer-events: none;
-}
-
-.edit-btn {
-    display: none;
-    position: absolute;
-    transform: translateY(-50%);
-    right: 5%;
-    top: 37px;
-    z-index: 5000;
-    font-size: 2.5rem;
-    color: #048808;
-    background-color: transparent;
-    border: 3px solid #048808;
-    padding: .4rem;
-    border-radius: 50%;
-    cursor: pointer;
 }
 
 .d-block {
@@ -200,26 +143,6 @@ body {
 .menu-navbar a.d-none,
 .d-none {
     display: none;
-}
-
-.edit-btn:hover {
-    background-color: #8df791;
-}
-
-.edit-btn-add {
-    display: none;
-    right: 15%;
-    font-size: 4rem;
-    border: none;
-    color: #20a925;
-}
-
-.edit-btn-add-block {
-    display: block;
-}
-
-.edit-btn-add:hover {
-    background-color: initial;
 }
 
 .section-style {
@@ -256,37 +179,6 @@ body {
     grid-auto-rows: max-content; 
     column-gap: 2rem;
     margin-left: 1rem;
-}
- 
-.box-seccion .box-edit,
-.card-proyecto .box-edit {
-    position: absolute;
-    right: 10px;
-    top: 0;
-    width: 40%;
-    display: none;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #eee9;
-    padding: .7rem 2rem;
-    border-radius: .5rem;
-}
-
-.box-seccion > div.box-edit-flex,
-.card-proyecto > div.box-edit-flex  {
-    display: flex;
-}
-
-.box-edit > .btn-edit {
-    font-size: 3.5rem;
-    color: #20a925;
-    cursor: pointer;
-}
-
-.box-edit > .btn-delete {
-    font-size: 3.5rem;
-    color: rgb(196, 19, 19);
-    cursor: pointer;
 }
 
 .educacion .box-seccion, .experiencia .box-seccion {
@@ -397,27 +289,4 @@ body {
         background-image: linear-gradient(40deg, var(--lightBlue) 30%, var(--darkBlue) 70%);
     }
     
-    .edit-btn {
-        right: 3.5%;
-    }
-
-    .edit-btn-add {
-        right: 7%;
-        font-size: 4.75rem;
-        border: none;
-    }
-
-    .edit-btn-add:hover {
-        background-color: initial;
-    }
-
-    .box-seccion .box-edit {
-        right: 10px;
-        width: 20%;
-    }
-    
-    .box-edit > .btn-edit,
-    .box-edit > .btn-delete {
-        font-size: 3rem;
-    }
 }

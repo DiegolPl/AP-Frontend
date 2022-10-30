@@ -12,9 +12,9 @@ p.copy {
     margin: 0;
 }
 
-@media (min-width: 450px){
+@media (min-width: 510px){
     footer.footer {
         height: 55px;
-        font-size: 1.3rem;
+        font-size: 1.15rem;
     }
 }

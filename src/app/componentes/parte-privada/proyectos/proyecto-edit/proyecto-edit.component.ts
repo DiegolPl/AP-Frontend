@@ -53,28 +53,6 @@ export class ProyectoEditComponent implements OnInit {
 
   }
 
-  //Evento para guardar el archivo en el formulario - evento change
-  // archivo:any;
-
-  // onChange(e: any) {
-  //   let extensionAllowed: any = { "png": true, "jpeg": true, "jpg": true };
-  //   let file = e.target.files[0];
-  //   if (file.size / 1024 / 1024 > 20) {
-  //     alert("File size should be less than 20MB")
-  //     return;
-  //   }
-  //   if (extensionAllowed) {
-  //     var nam = file.name.split('.').pop();
-  //     if (!extensionAllowed[nam]) {
-  //       alert("Please upload " + Object.keys(extensionAllowed) + " file.")
-  //       return;
-  //     }
-  //   }
-  //   this.archivo = file;
-  //   this.proyectoForm.controls["archivo"].setValue(file);
-  // }
-  
-  //Accion a realizar el envio del formulario
   editarProyecto(){
 
     Swal.fire({

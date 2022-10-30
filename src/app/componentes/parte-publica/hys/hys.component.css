@@ -1,8 +1,6 @@
 .hys .box-seccion {
     grid-template-columns: 1fr;
     min-height: 25px;
-    /* grid-template-columns: 2fr 4fr; */
-    
 }
 
 .skill-bar-bg {

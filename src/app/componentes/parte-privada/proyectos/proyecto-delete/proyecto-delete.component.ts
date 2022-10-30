@@ -29,7 +29,7 @@ export class ProyectoDeleteComponent implements OnInit {
       }else{
         this.proyectoForm.setValue({
           id:data.id,
-          archivo: '',
+          url_imagen: data.url_imagen,
           titulo: data.titulo,
           link: data.link,
           fecha: data.fecha,
@@ -70,7 +70,7 @@ export class ProyectoDeleteComponent implements OnInit {
   initForm():FormGroup {
     return this.fb.group({
       id: [''],
-      archivo: [''],
+      url_imagen: [''],
       link: ['',[Validators.required]],
       fecha: ['',[Validators.required]],
       titulo: ['',[Validators.required]],

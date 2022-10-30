@@ -3,9 +3,6 @@
         <label for="edit-perfil-input-img" class="form-label">Imagen</label>
         <input type="text" name="urlnewImg" formControlName="urlImg" class="d-none" id="value-edit-perfil-input-img">
         <input type="file" name="newImg" (change)="onChange($event)" class="form-control" id="edit-perfil-input-img" accept=".jpg, .jpeg, .png">
-        <!-- <input type="file" name="newImg" (change)="onChange($event)" class="form-control" id="edit-perfil-input-img"> -->
-       
-        <!-- <div *ngIf="perfilForm.get('archivo')?.touched && perfilForm.get('archivo')?.errors?.['required']" class="alert alert-danger" >Este campo es requerido</div> -->
     </div>
     <div class="col-12">
         <label for="edit-perfil-input-name" class="form-label">Nombre</label>
