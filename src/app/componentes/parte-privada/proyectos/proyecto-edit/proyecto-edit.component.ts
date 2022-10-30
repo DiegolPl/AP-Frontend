@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { CloudinaryService } from 'src/app/service/cloudinary.service';
 import { ProyectoService } from 'src/app/service/parte-privada/proyecto.service';
 import Swal from 'sweetalert2';
 
@@ -12,34 +13,66 @@ export class ProyectoEditComponent implements OnInit {
 
   proyectoForm:FormGroup;
   existeProyecto: boolean = false;
+  files:File[] = [];
   
-  constructor(private readonly fb:FormBuilder, private proyectoService:ProyectoService) { }
+  constructor(private readonly fb:FormBuilder, private proyectoService:ProyectoService, private cloudinaryService: CloudinaryService) { }
 
   ngOnInit(): void {
     this.proyectoForm = this.initForm();
   }
 
+  onChange(event: any){
+    this.files.push(event.target.files[0]);
+    
+    if(!this.files[0]){
+      Swal.fire({
+        target:'#modal-login',
+        icon: 'warning',
+        title: 'Oops...',
+        text: 'Debes subir una imagen'
+      })
+    }else{
+      this.uploadPhoto();
+    }
+  }
+
+  uploadPhoto(){
+    
+      const file_data = this.files[0];
+      const data = new FormData();
+      data.append('file',file_data);
+      data.append('upload_preset', 'proyectos');
+      data.append('cloud_name', 'apalmacen');
+
+      this.cloudinaryService.uploadImage(data).subscribe(response => {
+        if(response){
+          console.log(response.secure_url)
+          this.proyectoForm.controls["url_imagen"].setValue(response.secure_url);
+        }
+      })
+
+  }
 
   //Evento para guardar el archivo en el formulario - evento change
-  archivo:any;
+  // archivo:any;
 
-  onChange(e: any) {
-    let extensionAllowed: any = { "png": true, "jpeg": true, "jpg": true };
-    let file = e.target.files[0];
-    if (file.size / 1024 / 1024 > 20) {
-      alert("File size should be less than 20MB")
-      return;
-    }
-    if (extensionAllowed) {
-      var nam = file.name.split('.').pop();
-      if (!extensionAllowed[nam]) {
-        alert("Please upload " + Object.keys(extensionAllowed) + " file.")
-        return;
-      }
-    }
-    this.archivo = file;
-    this.proyectoForm.controls["archivo"].setValue(file);
-  }
+  // onChange(e: any) {
+  //   let extensionAllowed: any = { "png": true, "jpeg": true, "jpg": true };
+  //   let file = e.target.files[0];
+  //   if (file.size / 1024 / 1024 > 20) {
+  //     alert("File size should be less than 20MB")
+  //     return;
+  //   }
+  //   if (extensionAllowed) {
+  //     var nam = file.name.split('.').pop();
+  //     if (!extensionAllowed[nam]) {
+  //       alert("Please upload " + Object.keys(extensionAllowed) + " file.")
+  //       return;
+  //     }
+  //   }
+  //   this.archivo = file;
+  //   this.proyectoForm.controls["archivo"].setValue(file);
+  // }
   
   //Accion a realizar el envio del formulario
   editarProyecto(){
@@ -80,7 +113,7 @@ export class ProyectoEditComponent implements OnInit {
       }else{
         this.proyectoForm.setValue({
           id:data.id,
-          archivo: '',
+          url_imagen: data.url_imagen,
           titulo: data.titulo,
           link: data.link,
           fecha: data.fecha,
@@ -95,7 +128,7 @@ export class ProyectoEditComponent implements OnInit {
   initForm():FormGroup {
     return this.fb.group({
       id: [''],
-      archivo: [''],
+      url_imagen: [''],
       link: ['',[Validators.required]],
       titulo: ['',[Validators.required]],
       fecha: ['',[Validators.required]],

@@ -1,6 +1,7 @@
 <form class="row g-3" (ngSubmit)="agregarProyecto()" [formGroup]="proyectoForm" enctype="multipart/form-data">
     <div class="col-12">
         <label for="new-proyecto-input-img" class="form-label">Imagen</label>
+        <input type="text" name="urlnewImg" formControlName="url_imagen" class="d-none" id="value-new-proyecto-input-img">
         <input type="file" name="newImg" (change)="onChange($event)" class="form-control" id="new-proyecto-input-img">
     </div>
     <div class="col-12">

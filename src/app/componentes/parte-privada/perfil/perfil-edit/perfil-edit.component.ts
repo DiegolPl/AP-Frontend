@@ -77,29 +77,26 @@ export class PerfilEditComponent implements OnInit {
 
   //Accion a realizar el envio del formulario
   onEditPerfil(){
-
-    Swal.fire({
-      title: 'Estás seguro?',
-      text: "Por favor, confirma los cambios",
-      icon: 'warning',
-      showCancelButton: true,
-      confirmButtonColor: '#3085d6',
-      cancelButtonColor: '#d33',
-      confirmButtonText: 'Confirmar'
-    }).then((result) => {
-      if (result.isConfirmed) {
-        let datosFormulario = this.perfilForm.value;
-        datosFormulario['id'] = "1";
-        this.perfilService.editPerfil(datosFormulario).subscribe(data => data);
-        Swal.fire(
-          'Éxito!',
-          'El elemento fue editado correctamente.',
-          'success'
-        )
-      }
-    })
-
-    
+      Swal.fire({
+        title: 'Estás seguro?',
+        text: "Por favor, confirma los cambios",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Confirmar'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          let datosFormulario = this.perfilForm.value;
+          datosFormulario['id'] = "1";
+          this.perfilService.editPerfil(datosFormulario).subscribe(data => data);
+          Swal.fire(
+            'Éxito!',
+            'El elemento fue editado correctamente.',
+            'success'
+          )
+        }
+      })
   }
 
   getPerfil(id:number){
