@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 export class HabilidadService {
 
   // private apiServerUrl = 'https://apbackdiego.herokuapp.com/';
-  private apiServerUrl = 'https://ap-backend-vfgk.onrender.com';
+  private apiServerUrl = 'https://ap-backend-vfgk.onrender.com/';
 
   constructor(private http:HttpClient) { }
 
