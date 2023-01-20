@@ -7,7 +7,8 @@ import { Observable } from 'rxjs';
 })
 export class ExperienciaService {
 
-  private apiServerUrl = 'https://apbackdiego.herokuapp.com/';
+  // private apiServerUrl = 'https://apbackdiego.herokuapp.com/';
+  private apiServerUrl = 'https://ap-backend-vfgk.onrender.com';
 
   constructor(private http: HttpClient) { }
 
